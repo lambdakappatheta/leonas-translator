@@ -1,0 +1,26 @@
+size_t fread( void *restrict buffer, size_t size, size_t count, FILE *restrict stream );
+buffer  -	pointer to the array where the read objects are stored
+size    -	size of each object in bytes
+count   -	the number of the objects to be read
+stream	-	the stream to read
+
+input: abcd
+buf_size: 3
+
+data_size: 1
+data: 0
+
+  read: 2
+  buf: ab0
+data_size: 3
+strcat(0, ab0);
+data: ab0
+
+  read: 2
+  buf: cd0
+data_size: 5
+strcat(ab0, cd0);
+data: abcd0
+
+  read: 0
+  break;
